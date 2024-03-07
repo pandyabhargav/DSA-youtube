@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+    
+
+const data1 = [3, 7, 19, 34, 43, 45];
+const data2 = [4, 13, 17, 31];
+const data3 = [];
+
+function mergeSortedArr() {
+
+            let d1 = 0, d2 = 0, d3 = 0;
+
+            while(data1.length + data2.length > data3.length) {
+
+                if(!data1[d1]) {
+                    data3[d3] = data2[d2];
+                    d2++;
+                }
+                
+                if(!data2[d2]) {
+                    data3[d3] = data1[d1];
+                    d1++;
+                }
+
+                if(data1[d1] < data2[d2]) {
+                    data3[d3] = data1[d1];
+                    d1++
+                } else if(data1[d1] > data2[d2]) {
+                    data3[d3] = data2[d2];
+                    d2++;
+                }
+                
+                d3++;
+
+            }
+
+        }
+
+        mergeSortedArr();
+
+        console.log(data3);
+
+
+        </script>
+</body>
+</html>

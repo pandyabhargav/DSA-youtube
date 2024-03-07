@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      class List {
+        constructor(data) {
+          this.head = {
+            value: data,
+            next: null,
+          };
+          this.tail = this.head;
+          this.size = 1;
+        }
+        // newnode
+        newnode(newVal) {
+          let newNode = {
+            value: newVal,
+            next: null,
+          };
+
+          this.tail.next = newNode;
+
+          this.tail = newNode;
+          this.size += 1;
+        }
+        // printNode
+        // read(num, update) {
+        //     let counter = 1;
+        //     let cuuruntNode = this.head;
+        //     while (counter < this.size) {
+        //         if (counter == num) {
+        //             cuuruntNode.next.value = update;
+        //         }
+        //         cuuruntNode = cuuruntNode.next;
+        //         counter++
+        // console.log(cuuruntNode, counter);
+        //     }
+        // }
+
+        // deletnode
+        // delNode(index) {
+        //     let counter = 1;
+        //     let lead = this.head;
+        //     if (index === 1) {
+        //         this.head = this.head.next;
+        //     } else {
+        //         while (counter < index - 1) {
+        //             lead = lead.next
+        //             counter++
+        //         }
+        //         let nextNode = lead.next.next;
+        //         lead = nextNode;
+        //         // console.log(lead);
+        //     }
+        // }
+        insertNode(index, value) {
+          if (index == 1) {
+            let newNode = {
+              value,
+              next: this.head,
+            };
+            this.head = newNode;
+            this.size++;
+          } else {
+            let counter = 1;
+            let currentNode = this.head;
+            let prevNode = this.head;
+            while (counter < index) {
+              currentNode = currentNode.next;
+              if (counter > 1) {
+                prevNode = prevNode.next;
+              }
+              counter++;
+            }
+            let newNode = {
+              value,
+              next: null,
+            };
+            prevNode.next = newNode;
+            newNode.next = currentNode;
+            this.size++;
+          }
+        }
+      }
+
+      let list = new List("list-1");
+
+      list.newnode("list-2");
+      list.newnode("list-3");
+      list.newnode("list-4");
+      list.insertNode(5, 200000);
+      // list.read(3, 2000);
+      // list.delNode(2);
+      // list.middleNode();
+      // list.reversedNode();
+      console.log(list);
+    </script>
+  </body>
+</html>

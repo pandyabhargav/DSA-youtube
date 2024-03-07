@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+ <input type="number" id="pos" placeholder="enter pos"/>
+ <input type="number" id="num" placeholder=" enter number">
+ <button onclick=" insert();">insert</button>
+
+    <script>
+        function insert() {
+            
+        let data = [1, 2, 4, 5, 6]
+        let newel = document.getElementById("num").value;
+
+        let pos = document.getElementById("pos").value;
+        // console.log(data);
+        newel = parseInt(newel);
+        
+        for (let i = data.length - 1; i >= 0; i--) {
+            if (i >= pos) {
+                console.log( data[i + 1] = data[i]);
+                data[i + 1] = data[i];
+                if (i == pos) {
+                    console.log(data[i] = newel);
+                    data[i] = newel;
+                }
+            } 
+        }
+        // console.log(data);
+        }
+    </script>
+</body>
+
+</html>
